@@ -20,7 +20,16 @@ class GenusController extends Controller
 
         $funFact = "Octopus change color in *3 seconds*";
 
-        $funFact = $this->get('markdown.parser')->transformMarkdown($funFact);
+        $cache = $this->get('doctrine_cache.providers.my_markdown_cache');
+        $key = md5($funFact);
+        if ($cache->contains($key)) {
+            $funFact = $cache->fetch($key);
+        } else {
+            $funFact = $this->get('markdown.parser')->transformMarkdown($funFact);
+            $cache->save($key, $funFact);
+        }
+
+
         return $this->render('genus/show.html.twig', [
             'name' => $genusName,
             'funFact' => $funFact
