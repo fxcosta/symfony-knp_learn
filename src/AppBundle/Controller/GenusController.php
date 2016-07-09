@@ -18,7 +18,13 @@ class GenusController extends Controller
     public function showAction($genusName)
     {
 
-        return $this->render('genus/show.html.twig', ['name' => $genusName]);
+        $funFact = "Octopus change color in *3 seconds*";
+
+        $funFact = $this->get('markdown.parser')->transformMarkdown($funFact);
+        return $this->render('genus/show.html.twig', [
+            'name' => $genusName,
+            'funFact' => $funFact
+        ]);
     }
 
     /**
@@ -28,9 +34,9 @@ class GenusController extends Controller
     public function getNotesAction()
     {
         $notes = [
-            ['id' => 1, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Where you come from?', 'Date' => 'Dec. 20 2015'],
-            ['id' => 2, 'username' => 'AquaWeaver', 'avatarUri' => '/images/ryan.jpeg', 'note' => 'Hi, im Ryan', 'Date' => 'Dec. 21 2015'],
-            ['id' => 3, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Hi, anyone there?', 'Date' => 'Dec. 22 2015']
+            ['id' => 1, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Where you come from?', 'date' => 'Dec. 20 2015'],
+            ['id' => 2, 'username' => 'AquaWeaver', 'avatarUri' => '/images/ryan.jpeg', 'note' => 'Hi, im Ryan', 'date' => 'Dec. 21 2015'],
+            ['id' => 3, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Hi, anyone there?', 'date' => 'Dec. 22 2015']
         ];
 
         $data = [
