@@ -10,11 +10,11 @@ class GenusController
 {
 
     /**
-     * @Route("/genus")
+     * @Route("/genus/{genusName}")
      */
-    public function showAction()
+    public function showAction($genusName)
     {
-        return new Response("OK");
+        return new Response("The genus : " . $genusName);
     }
 
 }
