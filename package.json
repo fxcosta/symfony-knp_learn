@@ -1,0 +1,25 @@
+{
+  "name": "symfony-knp_learning",
+  "version": "1.0.0",
+  "description": "symfony-knp_learning ====================",
+  "main": "web/app.php",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Webdown404/symfony-knp_learn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Webdown404/symfony-knp_learn/issues"
+  },
+  "homepage": "https://github.com/Webdown404/symfony-knp_learn#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

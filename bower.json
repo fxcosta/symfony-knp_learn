@@ -1,0 +1,21 @@
+{
+  "name": "symfony-knp_learning",
+  "description": "symfony-knp_learning ====================",
+  "main": "web/app.php",
+  "authors": [
+    "Webdown404 <que.babault@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Webdown404/symfony-knp_learn",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
