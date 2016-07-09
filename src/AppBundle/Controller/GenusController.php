@@ -30,7 +30,7 @@ class GenusController extends Controller
         $notes = [
             ['id' => 1, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Where you come from?', 'Date' => 'Dec. 20 2015'],
             ['id' => 2, 'username' => 'AquaWeaver', 'avatarUri' => '/images/ryan.jpeg', 'note' => 'Hi, im Ryan', 'Date' => 'Dec. 21 2015'],
-            ['id' => 1, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Hi, anyone there?', 'Date' => 'Dec. 22 2015']
+            ['id' => 3, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Hi, anyone there?', 'Date' => 'Dec. 22 2015']
         ];
 
         $data = [
