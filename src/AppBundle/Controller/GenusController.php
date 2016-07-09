@@ -18,11 +18,11 @@ class GenusController extends Controller
     public function showAction($genusName)
     {
 
-        return $this->render('genus/show.html.twig', ['name' => $genusName, 'notes' => $notes]);
+        return $this->render('genus/show.html.twig', ['name' => $genusName]);
     }
 
     /**
-     * @Route("/genus/{genusName}/notes")
+     * @Route("/genus/{genusName}/notes", name="genus_show_notes")
      * @Method("GET")
      */
     public function getNotesAction()
