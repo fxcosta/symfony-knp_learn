@@ -51,12 +51,13 @@ class Genus
     private $isPublished = true;
 
     /**
-     * @ORM\OneToMany(targetEntity="GenusNote", mappedBy="genus"
+     * @ORM\OneToMany(targetEntity="GenusNote", mappedBy="genus")
+     * @ORM\OrderBy({"createdAt"="DESC"})
      */
     private $notes;
 
     /**
-     * @return mixed
+     * @return ArrayCollection|GenusNote[]
      */
     public function getNotes()
     {

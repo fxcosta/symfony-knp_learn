@@ -54,8 +54,14 @@ class GenusController extends Controller
             throw $this->createNotFoundException("No genus found!");
         }
 
+        $recentNotes = $genus->getNotes()
+            ->filter(function(GenusNote $note) {
+                return $note->getCreatedAt() > new \DateTime('-3 months');
+            });
+
         return $this->render('genus/show.html.twig', [
-            'genus' => $genus
+            'genus' => $genus,
+            'recentNoteCount' => count($recentNotes)
         ]);
 
     }
@@ -66,7 +72,19 @@ class GenusController extends Controller
      */
     public function getNotesAction(Genus $genus)
     {
-        $notes = $genus->getNotes();
+
+        $notes = [];
+
+        foreach ($genus->getNotes() as $note)
+        {
+            $notes[] = [
+                'id' => $note->getId(),
+                'username' => $note->getUsername(),
+                'avatarUri' => '/images/'.$note->getUserAvatarFilename(),
+                'note' => $note->getNote(),
+                'date' => $note->getCreatedAt()->format('M d, Y')
+            ];
+        }
 
         $data = [
             'notes' => $notes
