@@ -11,7 +11,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\GenusRepository")
  * @ORM\Table(name="genus")
  */
 
@@ -43,6 +43,19 @@ class Genus
      * @ORM\Column(type="string", nullable=true)
      */
     private $funFact;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPublished;
+
+    /**
+     * @param mixed $isPublished
+     */
+    public function setIsPublished($isPublished)
+    {
+        $this->isPublished = $isPublished;
+    }
 
     /**
      * @return mixed
