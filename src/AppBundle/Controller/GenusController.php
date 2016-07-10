@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Genus;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -11,6 +12,23 @@ use Symfony\Component\HttpFoundation\Response;
 
 class GenusController extends Controller
 {
+
+    /**
+     * @Route("/genus/new")
+     */
+    public function newAction()
+    {
+
+        $genus = new Genus();
+        $genus->setName("Octopus".rand(1, 100));
+        $genus->setSubFamily("Octo");
+        $genus->setSpeciesCount(1);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($genus);
+        $em->flush();
+
+        return new Response("OK");
+    }
 
     /**
      * @Route("/genus/{genusName}")
@@ -53,6 +71,21 @@ class GenusController extends Controller
         ];
 
         return new JsonResponse($data);
+
+    }
+
+    /**
+     * @Route("/genus")
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $genuses = $em->getRepository('AppBundle:Genus')
+            ->findAll();
+
+        return $this->render("genus/list.html.twig", [
+            'genuses' => $genuses
+        ]);
 
     }
 
