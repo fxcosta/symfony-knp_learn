@@ -45,8 +45,25 @@ class GenusNote
 
     /**
      * @ORM\ManyToOne(targetEntity="Genus")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $genus;
+
+    /**
+     * @return mixed
+     */
+    public function getGenus()
+    {
+        return $this->genus;
+    }
+
+    /**
+     * @param mixed $genus
+     */
+    public function setGenus($genus)
+    {
+        $this->genus = $genus;
+    }
 
     /**
      * @return mixed
