@@ -62,17 +62,17 @@ class Genus
      */
     private $firstDiscoveredAt;
 
+    public function __construct()
+    {
+        $this->notes = new ArrayCollection();
+    }
+
     /**
      * @return ArrayCollection|GenusNote[]
      */
     public function getNotes()
     {
         return $this->notes;
-    }
-
-    public function __construct()
-    {
-        $this->notes = new ArrayCollection();
     }
 
     /**

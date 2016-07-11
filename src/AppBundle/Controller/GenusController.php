@@ -54,7 +54,7 @@ class GenusController extends Controller
         {
             throw $this->createNotFoundException("No genus found!");
         }
-        
+
         $funFact = $this->get('app.markdown_transformer')->parse($genus->getFunFact());
 
         $recentNotes = $em->getRepository('AppBundle:GenusNote')->findAllRecentNotesForGenus($genus);
@@ -103,7 +103,6 @@ class GenusController extends Controller
         $em = $this->getDoctrine()->getManager();
         $genuses = $em->getRepository('AppBundle:Genus')
             ->findAllPublishedOrderedByRecentlyActive();
-
         return $this->render("genus/list.html.twig", [
             'genuses' => $genuses
         ]);
