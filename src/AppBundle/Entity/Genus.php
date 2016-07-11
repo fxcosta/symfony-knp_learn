@@ -146,7 +146,7 @@ class Genus
      */
     public function getFunFact()
     {
-        return $this->funFact;
+        return "**Text**: ".$this->funFact;
     }
 
     /**
