@@ -1,10 +1,11 @@
 AppBundle\entity\Genus:
     genus_{1..10}:
         name: <genus()>
-        subFamily: <text(20)>
+        subFamily: '@subfamily_*'
         speciesCount: <numberBetween(1, 1000)>
         funFact: <sentence()>
         isPublished: <boolean(75)>
+        firstDiscoveredAt: <dateTimeBetween('-200 years', 'now')>
 
 AppBundle\entity\GenusNote:
     genus.note_{1..100}:
@@ -13,3 +14,7 @@ AppBundle\entity\GenusNote:
         note: <paragraph()>
         createdAt: <dateTimeBetween('-6 months', 'now')>
         genus: '@genus_*'
+
+AppBundle\Entity\SubFamily:
+    subfamily_{1..10}:
+        name: <lastName()>
