@@ -86,6 +86,14 @@ class Genus
     /**
      * @return mixed
      */
+    public function getIsPublished()
+    {
+        return $this->isPublished;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getName()
     {
         return $this->name;
