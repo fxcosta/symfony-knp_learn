@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Security("is_granted('ROLE_ADMIN')")
+ * @Security("is_granted('ROLE_MANAGE_GENUS')")
  * @Route("/admin")
  */
 class GenusAdminController extends Controller
@@ -49,7 +49,7 @@ class GenusAdminController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            $this->addFlash('success', 'Genus added!');
+            $this->addFlash('success', 'Well done ' . $this->getUser()->getUsername() . ' your Genus was successfully added!');
 
             return $this->redirectToRoute('admin_genus_list');
         }

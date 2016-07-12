@@ -3,5 +3,6 @@
 {% block body %}
 
     <h1 class="page-header text-center">Homepage</h1>
+    <p>Welcome {{ app.user ? app.user.email : 'Aquanauts' }} !</p>
 
 {% endblock %}
