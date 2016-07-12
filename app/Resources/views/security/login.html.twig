@@ -2,23 +2,27 @@
 
 {% block body %}
 
-    <div class="row">
-        <div class="col-xs-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
 
-            <h1>Login</h1>
+                <h1>Login</h1>
 
-            {% if error %}
-                <div class="alert alert-danger">
-                    {{ error.messageKey|trans(error.messageData, 'security') }}
-                </div>
-            {% endif %}
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
 
-            {{ form_start(form) }}
-                {{ form_row(form._username) }}
-                {{ form_row(form._password) }}
-                <button type="submit" class="btn btn-success">Login <span class="fa fa-lock"></span></button>
-            {{ form_end(form) }}
+                {{ form_start(form) }}
+                    {{ form_row(form._username) }}
+                    {{ form_row(form._password) }}
+                    <button type="submit" class="btn btn-success">Login <span class="fa fa-lock"></span></button>
+                {{ form_end(form) }}
 
+                <a href="{{ path('user_register') }}">New User?</a>
+
+            </div>
         </div>
     </div>
 

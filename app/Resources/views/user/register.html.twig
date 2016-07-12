@@ -1,0 +1,22 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs12">
+                {{ form_start(form) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.plainPassword.first, {
+                        'label': 'Password'
+                    }) }}
+                    {{ form_row(form.plainPassword.second, {
+                        'label': 'Confirm Password'
+                    }) }}
+                    <button type="submit" class="btn btn-success" formnovalidate>Save</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

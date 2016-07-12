@@ -11,10 +11,13 @@ namespace AppBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @UniqueEntity(fields={"email"}, message="Email already exist!")
  */
 class User implements UserInterface
 {
@@ -28,6 +31,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
@@ -41,6 +46,9 @@ class User implements UserInterface
      */
     private $roles = [];
 
+    /**
+     * @Assert\NotBlank(groups={"Registration"})
+     */
     private $plainPassword;
 
     public function getUsername()
@@ -64,7 +72,10 @@ class User implements UserInterface
         $this->roles = $roles;
     }
 
-
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
 
     public function getPassword()
     {
