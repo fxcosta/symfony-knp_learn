@@ -40,7 +40,7 @@ class User implements UserInterface
 
     public function getUsername()
     {
-        $this->email;
+        return $this->email;
     }
 
     public function getRoles()
